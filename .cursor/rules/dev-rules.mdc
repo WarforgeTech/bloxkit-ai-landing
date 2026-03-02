@@ -1,0 +1,33 @@
+---
+alwaysApply: true
+---
+🧠 GENERAL RULES FOR AI-ASSISTED CODE EDITING
+
+1. ⛔ NO UNSOLICITED CHANGES
+   - Do not refactor, restyle, restructure, or rename anything not explicitly required by the prompt.
+   - Do not modernize or auto-upgrade existing code unless asked.
+
+2. 🔧 TASK SCOPE LIMITATION
+   - Only edit what is necessary to perform the specific request.
+   - Do not modify adjacent code, formatting, or comments.
+
+3. 💣 ERROR HANDLING
+   - If you encounter ambiguous or broken code, STOP. Do not invent a solution.
+   - Instead, respond with a comment like: “This section appears unclear. Please clarify.”
+
+4. 🧱 LOCKED REGION ENFORCEMENT
+   - Never modify code inside the following markers:
+     ```js
+     // BEGIN LOCKED
+     ... (do not touch anything here)
+     // END LOCKED
+     ```
+
+5. 📦 DIFF FORMAT ENFORCEMENT
+   - Output all changes as the smallest possible diff.
+   - Never return full-file rewrites unless explicitly instructed.
+
+6. 📁 FILE-SPECIFIC LOGIC (OPTIONAL)
+   - `*.css`, `*.scss`, `*.html` → No changes without visual designer approval.
+   - `pages/**` → No layout structure updates unless the request is about layout.
+   - `lib/`, `utils/` → Use functional purity. No side effects unless specified.

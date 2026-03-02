@@ -1,0 +1,35 @@
+---
+alwaysApply: true
+---
+🧠 FIREBASE DEVELOPMENT RULES FOR AI
+
+1. ✅ USE GEN 2 CLOUD FUNCTIONS ONLY
+   - Always import from: `firebase-functions/v2`
+   - Always initialize functions using: `onRequest`, `onCall`, `onSchedule` from Gen 2
+   - Never use `functions.https.onRequest` (Gen 1) or `functions.pubsub.schedule` from v1
+
+2. 🗃️ ORGANIZATION RULES
+   - All cloud functions should live in `functions/` directory
+   - Separate logic into `handlers/`, keep index.ts clean with only imports + exports
+
+3. 🌎 REGION + TIMEOUT SETTINGS
+   - Always specify region: `region('us-central1')`
+   - Set timeouts and memory using options:
+     ```ts
+     export const myFunction = onRequest(
+       { region: 'us-central1', timeoutSeconds: 60, memory: '256MiB' },
+       (req, res) => { ... }
+     )
+     ```
+
+4. 🔐 SECURITY PRACTICES
+   - Always validate `onCall` inputs with type guards or zod.
+   - Never expose sensitive env vars directly in functions.
+
+5. 🔄 DEPLOYMENT + CI
+   - Use `firebase-tools` v13+ only.
+   - Prefer deploying with GitHub Actions or `firebase deploy --only functions`.
+
+6. 🔌 FIRESTORE & AUTH
+   - Use modular SDK imports: `import { getFirestore } from 'firebase/firestore'`
+   - Never use namespaced v8 SDKs like `firebase.firestore()`

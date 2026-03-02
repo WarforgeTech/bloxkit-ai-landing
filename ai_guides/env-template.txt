@@ -1,0 +1,28 @@
+# Stripe Environment Configuration
+# Copy this content to .env.local and fill in your actual values
+
+# Development (Test Mode) - Already configured in stripe-config.ts
+# NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY_TEST=pk_test_...
+# STRIPE_SECRET_KEY_TEST=sk_test_...
+
+# Production (Live Mode) - Already configured in stripe-config.ts
+# NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY_LIVE=pk_live_...
+# STRIPE_SECRET_KEY_LIVE=sk_live_...
+
+# Firebase Functions Gen 2 API Endpoint
+# Single endpoint for both development and production
+NEXT_PUBLIC_API_ENDPOINT=https://stripecheckoutsession-fg73st64ka-uc.a.run.app
+
+# Optional: Override API endpoint for all environments
+# NEXT_PUBLIC_STRIPE_API_ENDPOINT=https://your-custom-endpoint.com
+
+# Optional: Force environment (overrides NODE_ENV)
+# STRIPE_ENVIRONMENT=development  # or 'production'
+
+# URLs (optional - will use defaults if not set)
+NEXT_PUBLIC_DEVELOPMENT_URL=http://localhost:9002
+NEXT_PUBLIC_PRODUCTION_URL=https://yourdomain.com
+NEXT_PUBLIC_BASE_URL=http://localhost:9002
+
+# Legacy support (optional)
+STRIPE_SECRET_KEY_TEST=sk_test_... 
