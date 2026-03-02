@@ -1,0 +1,15 @@
+---
+description: Guidelines for fixing bugs and errors
+globs:
+alwaysApply: false
+---
+
+
+# Bug Fixing Protocol
+- Step 1: Analyze the error thoroughly—reproduce it and identify root cause.
+- Step 2: Check related files for impacts (but only if instructed to read them).
+- Step 3: Propose minimal fixes; describe changes without applying.
+- Verify: Suggest tests to confirm the fix (e.g., "Add this Jest test: expect(...).toBe(...)").
+- If stuck: Recommend logging or breakpoints for further diagnosis.
+
+Example query handling: For "App crashes on load", explore stack trace first.

@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "the-fortnite-uefn-bootcamp"
+  },
+  "targets": {
+    "the-fortnite-uefn-bootcamp": {
+      "hosting": {
+        "fortnite-ugcplay": [
+          "the-fortnite-uefn-bootcamp"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
