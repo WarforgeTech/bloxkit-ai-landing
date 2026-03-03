@@ -107,7 +107,7 @@ export async function createStripeCheckoutSession(
 
 /**
  * Client-side function to initiate Stripe checkout (multiple products)
- * For upsell scenarios with bootcamp + asset pack
+ * (Legacy) Multi-product checkout helper (not currently used by BloxKit AI landing)
  */
 export async function createMultiProductStripeCheckoutSession(
   options: MultiProductCheckoutOptions

@@ -74,23 +74,9 @@ export async function verifyStripeSession(sessionId: string): Promise<SessionVer
  * Check if a session includes the asset pack
  */
 export function hasAssetPack(session: SessionDetails): boolean {
-    // First check metadata (preferred method used by webhook)
-    if (session.metadata) {
-        const hasAssetPackFromMetadata = session.metadata.product === 'bootcamp_with_asset_pack' ||
-            session.metadata.upsell_accepted === 'true' ||
-            session.metadata.checkout_type === 'multi_product';
-
-        if (hasAssetPackFromMetadata) {
-            return true;
-        }
-    }
-
-    // Fallback: Check if there are multiple line items (bootcamp + asset pack)
-    if (session.line_items?.data) {
-        return session.line_items.data.length > 1;
-    }
-
-    return false;
+    // Legacy helper retained for compatibility with older UI.
+    // BloxKit AI does not currently ship an "asset pack" upsell.
+    return Boolean(session.metadata?.upsell_accepted === 'true');
 }
 
 /**

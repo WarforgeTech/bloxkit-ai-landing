@@ -1,130 +1,60 @@
 'use client';
 
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { CheckCircle, ShieldCheck, Trophy, Monitor, Wifi, User, BookOpen } from "lucide-react";
-import { EnvironmentAwareCheckoutButton } from "@/components/ui/environment-aware-checkout-button";
-
-const requirements = [
-  {
-    text: "Windows PC that can run Fortnite",
-    icon: Monitor
-  },
-  {
-    text: "Stable internet and ≈ 30 GB free disk space",
-    icon: Wifi
-  },
-  {
-    text: "Free Epic Games account",
-    icon: User
-  },
-  {
-    text: "No coding or game-dev experience needed",
-    icon: BookOpen
-  },
-];
+import React from 'react';
+import { PRODUCTS } from '@/lib/product-catalog';
 
 export default function Pricing() {
+  const template = PRODUCTS.bloxkit_ai_template;
+
   return (
-    <section id="pricing" className="py-20 md:py-32 bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl uppercase text-primary mb-4">
-            Get Started Today
-          </h2>
-          <p className="mx-auto max-w-[600px] text-lg text-foreground/80">
-            Join thousands of creators who are already building and monetizing their Fortnite islands.
+    <section id="pricing" className="mx-auto max-w-6xl px-6 py-14">
+      <h2 className="text-3xl font-extrabold">Pricing</h2>
+      <p className="mt-3 max-w-3xl text-muted-foreground">
+        Start with the template. Add updates later if you want.
+      </p>
+
+      <div className="mt-8 grid gap-6 md:grid-cols-2">
+        <div className="rounded-2xl border p-8">
+          <p className="text-sm font-semibold">{template.name}</p>
+          <p className="mt-2 text-sm text-muted-foreground">{template.description}</p>
+
+          <div className="mt-6">
+            <p className="text-4xl font-extrabold">$99</p>
+            <p className="mt-1 text-xs text-muted-foreground">One-time purchase (intro pricing).</p>
+          </div>
+
+          <ul className="mt-6 list-disc space-y-2 pl-5 text-sm text-muted-foreground">
+            {template.features.map((f) => (
+              <li key={f}>{f}</li>
+            ))}
+          </ul>
+
+          <a
+            href="#"
+            className="mt-8 inline-flex w-full items-center justify-center rounded-md bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground opacity-60"
+            aria-disabled
+          >
+            Checkout (coming next)
+          </a>
+
+          <p className="mt-3 text-xs text-muted-foreground">
+            Checkout is disabled until Stripe is configured. Next step is wiring test-mode purchases.
           </p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-1 max-w-md mx-auto">
-          <Card className="relative border-2 border-[#FFD447] shadow-lg">
-            <CardHeader className="text-center pb-4">
-              <div className="flex justify-center mb-4">
-                <div className="w-16 h-16 rounded-full bg-[#FFD447]/20 flex items-center justify-center">
-                  <Trophy className="h-8 w-8 text-[#FFD447]" />
-                </div>
-              </div>
-              <CardTitle className="text-2xl font-bold text-primary">
-                Complete Bootcamp
-              </CardTitle>
-              <CardDescription className="text-lg">
-                Everything you need to succeed
-              </CardDescription>
-            </CardHeader>
+        <div className="rounded-2xl border p-8">
+          <p className="text-sm font-semibold">What you can expect</p>
+          <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+            <li><b className="text-foreground">Fast setup:</b> rokit/rojo/wally/stylua guidance included.</li>
+            <li><b className="text-foreground">Repeatable gates:</b> validate + runtime smoke test workflow.</li>
+            <li><b className="text-foreground">AI leverage:</b> use Studio AI where its strong; repo AI where it matters.</li>
+          </ul>
 
-            <CardContent className="text-center pb-6">
-              <div className="mb-6">
-                <span className="text-4xl font-bold text-primary">$37</span>
-                <span className="text-muted-foreground line-through ml-2">$399</span>
-                <span className="text-sm text-muted-foreground block">One-time payment</span>
-              </div>
-
-              <ul className="space-y-3 text-left mb-6">
-                <li className="flex items-center gap-3">
-                  <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0" />
-                  <span>8.5+ hours of step-by-step video content</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0" />
-                  <span>Complete UEFN mastery from basics to advanced</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0" />
-                  <span>Island publishing and monetization strategies</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0" />
-                  <span>Exclusive Discord community access</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0" />
-                  <span>Lifetime access to all course materials</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0" />
-                  <span>Certificate of completion</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0" />
-                  <span>30-day money-back guarantee</span>
-                </li>
-              </ul>
-            </CardContent>
-
-            <CardFooter className="flex flex-col gap-4">
-              <EnvironmentAwareCheckoutButton
-                productKey="bootcamp"
-                quantity={1}
-                metadata={{
-                  source: 'pricing',
-                  product: 'bootcamp',
-                }}
-                className="w-full h-14 font-bold text-xl transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#FFD447]/30 bg-[#FFD447] text-accent-foreground hover:bg-[#FFD447]/90"
-                size="lg"
-              >
-                Enroll Now - $37
-              </EnvironmentAwareCheckoutButton>
-
-              <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
-                <ShieldCheck className="h-4 w-4" />
-                <span>Secure payment powered by Stripe</span>
-              </div>
-            </CardFooter>
-          </Card>
-        </div>
-
-        <div className="mt-12 text-center">
-          <h3 className="font-bold text-lg mb-6 text-primary">System Requirements</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto">
-            {requirements.map((requirement) => (
-              <div key={requirement.text} className="flex items-center gap-3">
-                <div className="w-6 h-6 rounded border border-foreground/30 flex items-center justify-center">
-                  <requirement.icon className="h-4 w-4 text-foreground/60" />
-                </div>
-                <span className="text-foreground/80 text-sm">{requirement.text}</span>
-              </div>
-            ))}
+          <div className="mt-8 rounded-xl bg-muted/30 p-6">
+            <p className="text-sm font-semibold">Refund policy</p>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Well add a clear refund policy once Stripe is live.
+            </p>
           </div>
         </div>
       </div>
