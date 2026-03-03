@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Prevent committing secrets.
+# Requires: gitleaks (brew install gitleaks)
+
+if command -v gitleaks >/dev/null 2>&1; then
+  echo "[pre-commit] gitleaks protect --staged"
+  gitleaks protect --staged --redact --verbose
+else
+  echo "[pre-commit] WARNING: gitleaks not installed; skipping secret scan." >&2
+fi
