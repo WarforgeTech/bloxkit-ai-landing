@@ -1,10 +1,10 @@
-import type {Metadata} from 'next';
+import type { Metadata } from 'next';
 import './globals.css';
-import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
-  title: 'The Fortnite UEFN Bootcamp',
-  description: 'Master Fortnite Creative 2.0 and UEFN. Build, publish, and monetize your own games.',
+  title: 'BloxKit AI — Roblox Template + AI Workflows',
+  description:
+    'A production-minded Roblox template with Rojo, MCP-first runtime testing, and AI workflows for Codex/Claude Code + Studio Assistant.',
 };
 
 export default function RootLayout({
@@ -13,16 +13,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark" style={{scrollBehavior:'smooth'}}>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet" />
-      </head>
-      <body className="font-body antialiased">
-        {children}
-        <Toaster />
-      </body>
+    <html lang="en">
+      <body>{children}</body>
     </html>
   );
 }

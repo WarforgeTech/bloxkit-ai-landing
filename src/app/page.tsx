@@ -11,32 +11,25 @@ import Pricing from "@/components/landing/pricing";
 import FAQ from "@/components/landing/faq";
 import FinalCta from "@/components/landing/final-cta";
 import Footer from "@/components/landing/footer";
-import { EnvironmentTest } from "@/components/debug/environment-test";
-import { UpsellProvider } from "@/hooks/use-upsell";
-import { GlobalUpsellPopup } from "@/components/ui/global-upsell-popup";
+import Bonuses from "@/components/landing/bonuses";
+import InstructorBio from "@/components/landing/instructor-bio";
 
 export default function Home() {
   return (
-    <UpsellProvider>
-      <div className="min-h-screen bg-background">
-        <Header />
-        <Hero />
-        <Problem />
-        <Solution />
-        <Curriculum />
-        <SocialProof />
-        <EstimateEarnings />
-        <Pricing />
-        <FAQ />
-        <FinalCta />
-        <Footer />
-
-        {/* Environment Test Component - Remove after testing */}
-        <EnvironmentTest />
-      </div>
-
-      {/* Global Upsell Popup */}
-      <GlobalUpsellPopup />
-    </UpsellProvider>
+    <div className="min-h-screen bg-background">
+      <Header />
+      <Hero />
+      <Problem />
+      <Solution />
+      <Curriculum />
+      <Bonuses />
+      <InstructorBio />
+      <SocialProof />
+      <EstimateEarnings />
+      <Pricing />
+      <FAQ />
+      <FinalCta />
+      <Footer />
+    </div>
   );
 }
